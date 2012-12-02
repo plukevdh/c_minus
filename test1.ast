@@ -1,0 +1,59 @@
+FunctionDeclaration: INT fact ( 
+	Variable: x 
+)
+	CompoundStatement: {
+		SelectionStmt: if (
+			BinaryExpression: 
+				VariableExpression: x
+				GREATER_THAN
+				LiteralExpression: 1 
+
+		 )
+			ReturnStmt: 
+				BinaryExpression: 
+					VariableExpression: x
+					MULTIPLY
+					CallExpression: fact ( 
+						BinaryExpression: 
+							VariableExpression: x
+							SUBTRACT
+							LiteralExpression: 1 
+
+
+					 )
+
+
+		else
+			ReturnStmt: 
+				LiteralExpression: 1 
+	}
+
+FunctionDeclaration: VOID main ( 
+)
+	CompoundStatement: {
+		VariableDeclaration: x
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				CallExpression: read ( 
+				 )
+
+
+		SelectionStmt: if (
+			BinaryExpression: 
+				VariableExpression: x
+				GREATER_THAN
+				LiteralExpression: 0 
+
+		 )
+			ExpressionStmt: 
+				CallExpression: write ( 
+					CallExpression: fact ( 
+						VariableExpression: x
+					 )
+
+				 )
+
+	}
+

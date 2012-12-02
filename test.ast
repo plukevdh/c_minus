@@ -1,0 +1,53 @@
+FunctionDeclaration: INT main ( 
+)
+	CompoundStatement: {
+		VariableDeclaration: x
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				LiteralExpression: 5 
+
+
+		ExpressionStmt: 
+			CallExpression: putchar ( 
+				LiteralExpression: 4 
+
+			 )
+
+		SelectionStmt: if (
+			BinaryExpression: 
+				VariableExpression: x
+				GREATER_THAN
+				LiteralExpression: 4 
+
+		 )
+			CompoundStatement: {
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: x
+						=
+						LiteralExpression: 0 
+
+
+			}
+
+		else
+			CompoundStatement: {
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: x
+						=
+						LiteralExpression: 99 
+
+
+			}
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				LiteralExpression: 10 
+
+
+	}
+

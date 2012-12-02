@@ -1,0 +1,40 @@
+FunctionDeclaration: INT main ( 
+)
+	CompoundStatement: {
+		VariableDeclaration: x
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				LiteralExpression: 5 
+
+
+		SelectionStmt: if (
+			BinaryExpression: 
+				VariableExpression: x
+				LESS_THAN
+				LiteralExpression: 10 
+
+		 )
+			CompoundStatement: {
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: x
+						=
+						LiteralExpression: 6 
+
+
+			}
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				BinaryExpression: 
+					VariableExpression: x
+					SUBTRACT
+					LiteralExpression: 4 
+
+
+
+	}
+

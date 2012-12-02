@@ -1,0 +1,32 @@
+(FUNCTION  main  []
+  (BB 0
+    (OPER 14 Push []  [(m EBP)])
+    (OPER 15 Mov [(m EBP)]  [(m ESP)])
+  )
+  (BB 1
+    (OPER 4 Mov [(r 1)]  [(i 5)])
+    (OPER 5 Push []  [(i 4)])
+    (OPER 6 JSR []  [(s putchar)])
+    (OPER 18 Add_I [(m ESP)]  [(m ESP)(i 4)])
+    (OPER 7 Mov [(r 2)]  [(m EAX)])
+  )
+  (BB 6
+    (OPER 19 Cmp [(m Flags)]  [(r 1)(i 4)])
+    (OPER 20 BGT []  [(bb 4)(m Flags)])
+  )
+  (BB 3
+    (OPER 10 Mov [(r 1)]  [(i 0)])
+  )
+  (BB 5
+    (OPER 13 Mov [(r 1)]  [(i 10)])
+  )
+  (BB 2
+    (OPER 16 Mov [(m ESP)]  [(m EBP)])
+    (OPER 17 Pop [(m EBP)]  [])
+    (OPER 3 Return []  [(m EAX)])
+  )
+  (BB 4
+    (OPER 11 Mov [(r 1)]  [(i 99)])
+    (OPER 12 Jmp []  [(bb 5)])
+  )
+)

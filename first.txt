@@ -1,0 +1,66 @@
+first(args) = { ep, ID, (, NUM }
+first(call) = { ( }
+first(var2) = { [, ep }
+first(var) = { ID }
+first(factor2) = { ep, (, [ }
+first(factor) = { (, ID, NUM }
+first(mulop) = { *, / }
+first(addop) = { +, - }
+first(relop) = { <=, <, >, >=, ==, != }
+first(term2) = { ep, *, / }
+first(term) = { (, ID, NUM }
+first(AE2) = { ep, *, / }
+first(AE) = { (, ID, NUM }
+first(SE2) = { ep, *, / }
+first(SE) = { (, ID, NUM }
+first(E3) = { ep, *, /, = }
+first(E2) = { =, [, (, +, -, *, /, <=, <, >, >=, ==, !=, ), ; }
+first(E) = { ID, (, NUM }
+first(return-stmt) = { return }
+first(iteration-stmt) = { while }
+first(selection-stmt) = { if }
+first(expression-stmt) = { ID, (, NUM, ; }
+first(statement) = { ID, (, NUM, ;, if, while, return, { }
+first(compound-stmt) = { { }
+first(param) = { int }
+first(params) = { int, void }
+first(fun-decl2) = { ( }
+first(fun-decl) = { void }
+first(var-decl2) = { [, ; }
+first(decl2) = { [, ;, ( }
+first(decl) = { int, void }
+first(program) = { int, void }
+-------
+follow(program) = { $ }
+follow(declaration) = { $, int, void }
+follow(declaration2) = { $, int, void }
+follow(fun-declaration) = { $, int, void }
+follow(var-declaration2) = { $, int, void }
+follow(fun-declaration2) = { $, int, void }
+follow(params) = { ) }
+follow(compound-stmt) = { $, int, void }
+follow(param) = { ',', ) }
+follow(var-declaration) = { } }
+follow(statement) = { }, else }
+follow(expression-stmt) = { }, else }
+follow(compound-stmt) = { }, else }
+follow(selection-stmt) = { }, else }
+follow(iteration-stmt) = { }, else} }
+follow(return-stmt) = { }, else }
+follow(expression) = { ;, ), ] , ','}
+follow(expression2) = { ;, ), ] , ',' }
+follow(simple-expression) = { ;, ), ] , ',' }
+follow(expression3) = { ;, ), ] , ',' }
+follow(args) = { ) }
+follow(simple-expression2) = { ;, ), ] , ',' }
+follow(addop) = { (, ID, NUM }
+follow(relop) = { (, ID, NUM }
+follow(mulop) = { (, ID, NUM }
+follow(additive-expression) = { <=, <, >, >=, ==, !=, ;, ), ] , ',' }
+follow(additive-expression2) = { <=, <, >, >=, ==, !=, ;, ), ] , ',' }
+follow(term) = { +, -, <=, <, >, >=, ==, !=, ;, ), ] , ',' }
+follow(term2) = { +, -, <=, <, >, >=, ==, !=, ;, ), ] , ',' }
+follow(factor) = { *, /, +, -, <=, <, >, >=, ==, !=, ;, ), ] , ',' }
+follow(factor2) = { *, /, +, -, <=, <, >, >=, ==, !=, ;, ), ] , ',' }
+follow(var2) = { *, /, +, -, <=, <, >, >=, ==, !=, ;, ), ] , ',' }
+follow(call) = { *, /, +, -, <=, <, >, >=, ==, !=, ;, ), ] , ',' }

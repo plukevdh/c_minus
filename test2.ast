@@ -1,0 +1,66 @@
+FunctionDeclaration: INT gcd ( 
+	Variable: u 
+	Variable: v 
+)
+	CompoundStatement: {
+		SelectionStmt: if (
+			BinaryExpression: 
+				VariableExpression: v
+				EQUAL
+				LiteralExpression: 0 
+
+		 )
+			ReturnStmt: 
+				VariableExpression: u
+		else
+			ReturnStmt: 
+				CallExpression: gcd ( 
+					VariableExpression: v
+					BinaryExpression: 
+						VariableExpression: u
+						SUBTRACT
+						BinaryExpression: 
+							BinaryExpression: 
+								VariableExpression: u
+								DIVIDE
+								VariableExpression: v
+
+							MULTIPLY
+							VariableExpression: v
+
+
+				 )
+	}
+
+FunctionDeclaration: VOID main ( 
+)
+	CompoundStatement: {
+		VariableDeclaration: x
+		VariableDeclaration: y
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				CallExpression: input ( 
+				 )
+
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: y
+				=
+				CallExpression: input ( 
+				 )
+
+
+		ExpressionStmt: 
+			CallExpression: output ( 
+				CallExpression: gcd ( 
+					VariableExpression: x
+					VariableExpression: y
+				 )
+
+			 )
+
+	}
+

@@ -1,0 +1,162 @@
+	VariableDeclaration: a
+FunctionDeclaration: INT addThem ( 
+	Variable: d 
+	Variable: e 
+)
+	CompoundStatement: {
+		VariableDeclaration: f
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: f
+				=
+				BinaryExpression: 
+					VariableExpression: d
+					ADD
+					VariableExpression: e
+
+
+		ReturnStmt: 
+			VariableExpression: f	}
+
+FunctionDeclaration: INT main ( 
+)
+	CompoundStatement: {
+		VariableDeclaration: b
+		VariableDeclaration: c
+		VariableDeclaration: g
+		VariableDeclaration: h
+		VariableDeclaration: i
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: b
+				=
+				LiteralExpression: 5 
+
+
+		SelectionStmt: if (
+			BinaryExpression: 
+				VariableExpression: b
+				EQUAL
+				LiteralExpression: 5 
+
+		 )
+			CompoundStatement: {
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: a
+						=
+						LiteralExpression: 3 
+
+
+			}
+
+		else
+			CompoundStatement: {
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: a
+						=
+						LiteralExpression: 4 
+
+
+			}
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: g
+				=
+				LiteralExpression: 0 
+
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: i
+				=
+				LiteralExpression: 1 
+
+
+		IterationStmt: 
+			BinaryExpression: 
+				VariableExpression: i
+				LT_EQUAL
+				LiteralExpression: 8 
+
+			CompoundStatement: {
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: g
+						=
+						BinaryExpression: 
+							VariableExpression: g
+							ADD
+							VariableExpression: i
+
+
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: i
+						=
+						BinaryExpression: 
+							VariableExpression: i
+							ADD
+							LiteralExpression: 1 
+
+
+
+			}
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: h
+				=
+				BinaryExpression: 
+					VariableExpression: g
+					DIVIDE
+					LiteralExpression: 3 
+
+
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: g
+				=
+				BinaryExpression: 
+					VariableExpression: h
+					MULTIPLY
+					LiteralExpression: 4 
+
+
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: c
+				=
+				CallExpression: addThem ( 
+					VariableExpression: a
+					VariableExpression: b
+				 )
+
+
+		ExpressionStmt: 
+			CallExpression: putchar ( 
+				BinaryExpression: 
+					BinaryExpression: 
+						VariableExpression: c
+						ADD
+						VariableExpression: g
+
+					ADD
+					LiteralExpression: 48 
+
+
+			 )
+
+		ExpressionStmt: 
+			CallExpression: putchar ( 
+				LiteralExpression: 10 
+
+			 )
+
+		ReturnStmt: 
+			LiteralExpression: 0 
+	}
+

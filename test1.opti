@@ -1,0 +1,27 @@
+(FUNCTION  fact  [(int x)]
+  (BB 0
+    (OPER 1 Func_Entry []  [])
+  )
+  (BB 2
+    (OPER 2 Func_Exit []  [])
+    (OPER 3 Return []  [(m RetReg)])
+  )
+)
+(FUNCTION  main  []
+  (BB 0
+    (OPER 1 Func_Entry []  [])
+  )
+  (BB 1
+    (OPER 4 JSR []  [(s read)])
+    (OPER 5 Mov [(r 1)]  [(r 0)])
+    (OPER 6 GT [(r 2)]  [(r 1)(i 0)])
+    (OPER 8 Pass []  [(r 1)])
+    (OPER 9 JSR []  [(s fact)])
+    (OPER 7 Pass []  [(r 0)])
+    (OPER 10 JSR []  [(s write)])
+  )
+  (BB 2
+    (OPER 2 Func_Exit []  [])
+    (OPER 3 Return []  [(m RetReg)])
+  )
+)

@@ -1,0 +1,26 @@
+(FUNCTION  main  []
+  (BB 0
+    (OPER 10 Push []  [(m EBP)])
+    (OPER 11 Mov [(m EBP)]  [(m ESP)])
+  )
+  (BB 1
+    (OPER 4 Mov [(r 1)]  [(i 5)])
+  )
+  (BB 6
+    (OPER 14 Cmp [(m Flags)]  [(r 1)(i 10)])
+    (OPER 15 BLT []  [(bb 5)(m Flags)])
+  )
+  (BB 3
+    (OPER 7 Mov [(r 1)]  [(i 6)])
+  )
+  (BB 5
+    (OPER 16 Mov [(r 3)]  [(r 1)])
+    (OPER 8 Sub_I [(r 3)]  [(r 3)(i 4)])
+    (OPER 9 Mov [(r 1)]  [(r 3)])
+  )
+  (BB 2
+    (OPER 12 Mov [(m ESP)]  [(m EBP)])
+    (OPER 13 Pop [(m EBP)]  [])
+    (OPER 3 Return []  [(m EAX)])
+  )
+)

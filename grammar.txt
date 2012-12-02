@@ -1,0 +1,48 @@
+program -> declaration {declaration}
+
+declaration -> int ID declaration2 | fun-declaration
+declaration2 -> var-declaration2 | fun-delcaration2
+
+var-declaration -> int ID [[NUM]];
+var-declaration2 -> [[NUM]];
+
+fun-declaration -> void ID(params) compound-stmt
+fun-declaration2 -> (params) compound-stmt
+
+params -> param {, param} | void
+param -> int ID [[]]
+
+compound-stmt -> {{var-declaration} {statement}}
+
+statement -> expression-stmt | compound-stmt | selection-stmt | iteration-stmt | return-stmt
+
+expression-stmt -> [expression];
+selection-stmt -> if(expression) statement [else statement]
+iteration-stmt -> while(expression) statement
+return-stmt -> return [expression];
+
+expression -> ID expression2 | (!ID) simple-expression
+expression2 -> = expression | [expression] expression3 | (args) simple-expression2 | (addop|relop|mulop|)|;) simple-expression2
+expression3 -> simple-expression2 | = expression
+
+simple-expression -> additive-expression [relop additive-expression]
+simple-expresson2 -> additive-expression2 [relop additive-expression]
+
+additive-expression -> term {addop term}
+additive-expression2 -> term2 {addop term}
+
+term -> factor {mulop factor}
+term2 -> {mulop factor}
+
+relop -> <= | < | > | >= | == | !=
+
+addop -> + | -
+mulop -> * | /
+factor -> (expression) | ID factor2 | NUM
+factor2 -> var2 | call
+
+var -> ID [[expression]]
+var2 -> [[expression]]
+
+call -> (args)
+args -> expression {, expression} | nothing

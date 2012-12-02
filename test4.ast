@@ -1,0 +1,288 @@
+	VariableDeclaration: x[ 10 ]
+FunctionDeclaration: INT minloc ( 
+	Variable: a 
+	Variable: low 
+	Variable: high 
+)
+	CompoundStatement: {
+		VariableDeclaration: i
+		VariableDeclaration: x
+		VariableDeclaration: k
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: k
+				=
+				VariableExpression: low
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				VariableExpression: a[ 
+					VariableExpression: low
+				]
+
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: i
+				=
+				BinaryExpression: 
+					VariableExpression: low
+					ADD
+					LiteralExpression: 1 
+
+
+
+		IterationStmt: 
+			BinaryExpression: 
+				VariableExpression: i
+				LESS_THAN
+				VariableExpression: high
+			CompoundStatement: {
+				SelectionStmt: if (
+					BinaryExpression: 
+						VariableExpression: a[ 
+							VariableExpression: i
+						]
+
+						LESS_THAN
+						VariableExpression: x
+				 )
+					CompoundStatement: {
+						ExpressionStmt: 
+							AssignExpression: 
+								VariableExpression: x
+								=
+								VariableExpression: a[ 
+									VariableExpression: i
+								]
+
+
+						ExpressionStmt: 
+							AssignExpression: 
+								VariableExpression: k
+								=
+								VariableExpression: i
+
+					}
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: i
+						=
+						BinaryExpression: 
+							VariableExpression: i
+							ADD
+							LiteralExpression: 1 
+
+
+
+			}
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: x
+				=
+				BinaryExpression: 
+					BinaryExpression: 
+						BinaryExpression: 
+							BinaryExpression: 
+								VariableExpression: x
+								ADD
+								VariableExpression: k
+
+							ADD
+							VariableExpression: i
+
+						SUBTRACT
+						BinaryExpression: 
+							BinaryExpression: 
+								VariableExpression: i
+								DIVIDE
+								VariableExpression: x
+
+							MULTIPLY
+							VariableExpression: k
+
+
+					ADD
+					BinaryExpression: 
+						VariableExpression: i
+						DIVIDE
+						VariableExpression: k
+
+
+
+		ReturnStmt: 
+			VariableExpression: k	}
+
+FunctionDeclaration: VOID sort ( 
+	Variable: a 
+	Variable: low 
+	Variable: high 
+)
+	CompoundStatement: {
+		VariableDeclaration: i
+		VariableDeclaration: k
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: i
+				=
+				VariableExpression: low
+
+		IterationStmt: 
+			BinaryExpression: 
+				VariableExpression: i
+				LESS_THAN
+				BinaryExpression: 
+					VariableExpression: high
+					SUBTRACT
+					LiteralExpression: 1 
+
+
+			CompoundStatement: {
+				VariableDeclaration: t
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: k
+						=
+						CallExpression: minloc ( 
+							VariableExpression: a
+							VariableExpression: i
+							VariableExpression: high
+						 )
+
+
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: t
+						=
+						VariableExpression: a[ 
+							VariableExpression: k
+						]
+
+
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: a[ 
+							VariableExpression: k
+						]
+
+						=
+						VariableExpression: a[ 
+							VariableExpression: i
+						]
+
+
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: a[ 
+							VariableExpression: i
+						]
+
+						=
+						VariableExpression: t
+
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: i
+						=
+						BinaryExpression: 
+							VariableExpression: i
+							ADD
+							LiteralExpression: 1 
+
+
+
+			}
+
+	}
+
+FunctionDeclaration: VOID main ( 
+)
+	CompoundStatement: {
+		VariableDeclaration: i
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: i
+				=
+				LiteralExpression: 0 
+
+
+		IterationStmt: 
+			BinaryExpression: 
+				VariableExpression: i
+				LESS_THAN
+				LiteralExpression: 10 
+
+			CompoundStatement: {
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: x[ 
+							VariableExpression: i
+						]
+
+						=
+						CallExpression: input ( 
+						 )
+
+
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: i
+						=
+						BinaryExpression: 
+							VariableExpression: i
+							ADD
+							LiteralExpression: 1 
+
+
+
+			}
+
+		ExpressionStmt: 
+			CallExpression: sort ( 
+				VariableExpression: x
+				LiteralExpression: 0 
+
+				LiteralExpression: 10 
+
+			 )
+
+		ExpressionStmt: 
+			AssignExpression: 
+				VariableExpression: i
+				=
+				LiteralExpression: 0 
+
+
+		IterationStmt: 
+			BinaryExpression: 
+				VariableExpression: i
+				LESS_THAN
+				LiteralExpression: 10 
+
+			CompoundStatement: {
+				ExpressionStmt: 
+					CallExpression: output ( 
+						VariableExpression: x[ 
+							VariableExpression: i
+						]
+
+					 )
+
+				ExpressionStmt: 
+					AssignExpression: 
+						VariableExpression: i
+						=
+						BinaryExpression: 
+							VariableExpression: i
+							ADD
+							LiteralExpression: 1 
+
+
+
+			}
+
+	}
+
